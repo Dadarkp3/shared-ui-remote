@@ -3,6 +3,7 @@ export const mfConfig = {
   filename: "remoteEntry.js",
   exposes: {
     "./Counter": "./src/components/Counter",
+    "./Navbar": "./src/components/organisms/Navbar",
   },
-  shared: ["react", "react-dom"],
+  shared: ["react", "react-dom", "react-router-dom"],
 };

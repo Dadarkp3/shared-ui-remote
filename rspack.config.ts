@@ -44,6 +44,10 @@ export default withZephyr()({
         type: "asset",
       },
       {
+        test: /\.(png|jpe?g|gif|webp|svg)$/i,
+        type: "asset/resource",
+      },
+      {
         test: /\.css$/,
         use: ["postcss-loader"],
         type: "css",
