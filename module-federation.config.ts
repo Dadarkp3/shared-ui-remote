@@ -1,5 +1,8 @@
 export const mfConfig = {
   name: "shared_ui_remote",
-  exposes: {},
+  filename: "remoteEntry.js",
+  exposes: {
+    "./Counter": "./src/components/Counter",
+  },
   shared: ["react", "react-dom"],
 };
