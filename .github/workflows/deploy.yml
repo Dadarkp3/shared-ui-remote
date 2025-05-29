@@ -1,0 +1,38 @@
+name: Deploy to Zephyr
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: 22 # Define a versão do Node.js a ser usada
+
+jobs:
+  deploy-on-main:
+    runs-on: ubuntu-latest # Define o ambiente de execução
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3 # Faz o checkout do seu código do repositório
+
+      # Configura o Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }} # Usa a versão definida na variável de ambiente
+
+      # Instala as dependências usando pnpm
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.6.3 # Versão do pnpm a ser usada
+          run_install: false # Não executa 'pnpm install' automaticamente aqui
+      - name: Install dependencies
+        run: pnpm i # Executa a instalação das dependências
+
+      # Executa o script de build da sua aplicação (assumindo 'pnpm run build')
+      - name: Run CI build
+        id: build
+        env:
+          # ZE_SECRET_TOKEN é passado para o ambiente do script de build, se ele precisar
+          ZE_SECRET_TOKEN: ${{ secrets.ZE_SECRET_TOKEN }}
+        run: pnpm run build
