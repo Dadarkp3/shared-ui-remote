@@ -1,5 +1,8 @@
 # 🌦️ Weather App Remote
 
+![logo](https://github.com/user-attachments/assets/c16b24c3-1d84-48ea-b51c-fce02631f7d0)
+
+
 > **Tags:** `react` `module-federation` `rspack` `tailwindcss` `zephyr` `create-mf-app` `design-system` `microfrontend`
 
 This is the **remote module** for the Weather App. It provides reusable UI components (atoms, molecules, organisms) consumed by the host app via **Module Federation**.
@@ -45,7 +48,7 @@ All components follow **Atomic Design** principles and are designed to be themea
 
 ## 🔗 Module Federation
 
-```json
+```js
 // remote webpack.config.js
 exposes: {
    "./Navbar": "./src/components/organisms/Navbar",
