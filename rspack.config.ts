@@ -30,7 +30,7 @@ export default withZephyr()({
     // You need to set a unique value that is not equal to other applications
     uniqueName: "shared_ui_remote",
     // publicPath must be configured if using manifest
-    publicPath: "http://localhost:8081/",
+    publicPath: isDev ? "http://localhost:8081/" : "auto",
   },
 
   experiments: {
